@@ -97,6 +97,14 @@ Copy `mng-polyfill.js` into your project and include it with a `<script>` tag. N
 <script src="mng-polyfill.js"></script>
 ```
 
+## CORS
+
+The polyfill uses `fetch()` to download `.mng` files. If the MNG file is served from a different domain than the page, the server must include the appropriate CORS header:
+
+```
+Access-Control-Allow-Origin: *
+```
+
 ## License
 
 [MIT](LICENSE)
