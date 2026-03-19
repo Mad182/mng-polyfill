@@ -810,11 +810,12 @@
 
         // Load the MNG file
         player.load(src).catch(function (err) {
-            console.error('MNG polyfill: failed to load ' + src, err);
-            // Restore original img on failure
+            console.warn('MNG polyfill: failed to load ' + src, err);
+            // Restore original img on failure, but keep _mngPolyfilled = true
+            // so the MutationObserver won't re-trigger an infinite retry loop
             if (canvas.parentNode) {
+                img._mngFailed = true;
                 canvas.parentNode.replaceChild(img, canvas);
-                img._mngPolyfilled = false;
             }
         });
     }
