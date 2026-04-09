@@ -394,9 +394,6 @@
                     inImage = false;
                     imageChunks.length = 0;
 
-                    // Reset DEFI position for next image
-                    defiX = 0;
-                    defiY = 0;
                 }
 
             } else if (inImage) {
